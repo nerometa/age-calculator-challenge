@@ -1,0 +1,274 @@
+/* CSS Reset */
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+	font-size: 1.6rem;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 62.5%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* End CSS Reset */
+
+/* Variables */
+
+:root {
+	--primary: hsl(259, 100%, 65%);
+	--red: hsl(0, 100%, 67%);
+	--white: hsl(0, 0%, 100%);
+	--off-white: hsl(0, 0%, 94%);
+	--light-grey: hsl(0, 0%, 86%);
+	--smokey-grey: hsl(0, 1%, 44%);
+	--off-black: hsl(0, 0%, 8%);
+
+	--input-font-size: 3.2rem;
+}
+
+/* End Variables */
+
+/* Fonts */
+
+@font-face {
+	font-family: "Poppins Regular";
+	src: url("assets/fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+	font-family: "Poppins Bold";
+	src: url("assets/fonts/Poppins-Bold.ttf");
+}
+
+@font-face {
+	font-family: "Poppins Extra Bold";
+	src: url("assets/fonts/Poppins-ExtraBold.ttf");
+}
+
+@font-face {
+	font-family: "Poppins Extra Bold Italic";
+	src: url("assets/fonts/Poppins-ExtraBoldItalic.ttf");
+}
+
+/* End Fonts */
+
+body {
+	font-family: "Poppins Regular", sans-serif;
+	font-style: italic;
+	background-color: var(--off-white);
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+main {
+	height: 100vh;
+	display: grid;
+	place-content: center;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	margin-inline: max(3vw, 1rem);
+	background-color: var(--white);
+	height: 48.7rem;
+	width: clamp(34.3rem, 90vw, 84rem);
+	border-radius: 2.5rem 2.5rem 10rem 2.5rem;
+	padding: 2.4rem;
+}
+
+#birth-date-form {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 3.2rem;
+}
+
+.input-field {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.input-field label {
+	font-family: "Poppins Bold", sans-serif;
+	font-size: 1.2rem;
+	font-style: normal;
+	text-transform: uppercase;
+	letter-spacing: 0.3rem;
+	color: var(--smokey-grey);
+}
+
+.input-field input {
+	font-family: "Poppins Bold", sans-serif;
+	width: clamp(8.8rem, 90%, 16rem);
+	height: 5.4rem;
+	border-radius: 8px;
+	border: 1px solid var(--light-grey);
+	appearance: none;
+	-moz-appearance: textfield;
+	margin: 0;
+	padding-left: 1.6rem;
+	font-size: 2rem;
+}
+
+.input-field input:active,
+.input-field input:focus-visible {
+	border: 1px solid var(--primary);
+}
+
+.input-field input::placeholder {
+	font-family: "Poppins Bold", sans-serif;
+}
+
+.error-message {
+	font-size: 1.4rem;
+}
+
+.fancy-submit {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	margin: 0;
+}
+
+.line {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	top: 50%;
+	background: var(--light-grey);
+	height: 2px;
+}
+
+.fancy-button {
+	border: none;
+	background: var(--primary);
+	border-radius: 50%;
+	width: 6.5rem;
+	height: 6.5rem;
+	z-index: 2;
+	cursor: pointer;
+}
+
+.fancy-button:hover {
+	background-color: var(--off-black);
+	transition: background-color 150ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.fancy-button img {
+	width: 2.5rem;
+}
+
+.age-result {
+	font-family: "Poppins Extra Bold", sans-serif;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: auto;
+	flex: 1;
+}
+
+.age-result > div {
+	display: flex;
+	height: 6rem;
+	align-items: flex-end;
+	gap: 2rem;
+}
+
+.result-text {
+	font-size: 5rem;
+}
+
+.result-number {
+	font-size: 5rem;
+	color: var(--primary);
+}
+
+@media (min-width: 850px) {
+	.container {
+		height: 65rem;
+		padding: 5.6rem;
+		border-radius: 2.5rem 2.5rem 20rem 2.5rem;
+	}
+
+	#birth-date-form {
+		justify-content: flex-start;
+		gap: 3.2rem;
+		margin: 0;
+	}
+
+	.input-field input {
+		height: 7.2rem;
+		width: 16rem;
+		font-size: 3.2rem;
+	}
+
+	.input-field input::placeholder {
+		font-size: 3.2rem;
+	}
+
+	.input-field label {
+		font-size: 1.4rem;
+	}
+
+	.fancy-submit {
+		justify-content: flex-end;
+	}
+
+	.fancy-button {
+		width: 9.6rem;
+		height: 9.6rem;
+	}
+
+	.fancy-button img {
+		width: auto;
+	}
+
+	.age-result {
+		font-size: 10.2rem;
+	}
+
+	.age-result > div {
+		height: 10rem;
+	}
+
+	.result-number {
+		font-size: 10.2rem;
+	}
+
+	.result-text {
+		font-size: 10.2rem;
+	}
+
+	.age-result > div {
+		height: 11.5rem;
+	}
+}

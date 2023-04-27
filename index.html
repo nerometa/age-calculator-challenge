@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./assets/images/favicon-32x32.png"
+		/>
+		<!-- <link
+			href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap"
+			rel="stylesheet"
+		/> -->
+		<title>Frontend Mentor | Age calculator app</title>
+		<link rel="stylesheet" href="style.css" />
+		<style>
+			.attribution {
+				font-family: "Poppins Regular";
+				font-size: 11px;
+				text-align: center;
+			}
+			.attribution a {
+				font-size: 14px;
+				font-family: "Poppins Bold", sans-serif;
+				text-decoration: none;
+				color: var(--primary);
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<div class="container">
+				<form id="birth-date-form">
+					<div class="input-field">
+						<label for="day">Day</label>
+
+						<input
+							oninput="this.value=this.value.slice(0,this.maxLength)"
+							type="number"
+							name="day"
+							id="day"
+							placeholder="DD"
+							max="31"
+							maxlength="2"
+						/>
+						<div class="error-message"></div>
+					</div>
+					<div class="input-field">
+						<label for="month">Month</label>
+						<input
+							oninput="this.value=this.value.slice(0,this.maxLength)"
+							type="number"
+							name="month"
+							id="month"
+							placeholder="MM"
+							max="12"
+							maxlength="2"
+						/>
+						<div class="error-message"></div>
+					</div>
+					<div class="input-field">
+						<label for="year">Year</label>
+						<input
+							oninput="this.value=this.value.slice(0,this.maxLength)"
+							type="number"
+							name="year"
+							id="year"
+							placeholder="YYYY"
+							max="9999"
+							maxlength="4"
+						/>
+						<div class="error-message"></div>
+					</div>
+				</form>
+				<section class="fancy-submit">
+					<div class="line"></div>
+					<button class="fancy-button" onclick="calculateAge()">
+						<img src="./assets/images/icon-arrow.svg" alt="" />
+					</button>
+				</section>
+				<section class="age-result">
+					<div class="year-result">
+						<span id="year-result-number" class="result-number"
+							>- -</span
+						>
+						<span id="year-result-text" class="result-text"
+							>years</span
+						>
+					</div>
+					<div class="month-result">
+						<span id="month-result-number" class="result-number"
+							>- -</span
+						>
+						<span id="month-result-text" class="result-text"
+							>months</span
+						>
+					</div>
+					<div class="day-result">
+						<span id="day-result-number" class="result-number"
+							>- -</span
+						>
+						<span id="day-result-text" class="result-text"
+							>days</span
+						>
+					</div>
+				</section>
+			</div>
+		</main>
+
+		<div class="attribution">
+			Challenge by
+			<a
+				href="https://www.frontendmentor.io?ref=challenge"
+				target="_blank"
+				>Frontend Mentor</a
+			>. Coded by <a href="#">Nerometa</a>.
+		</div>
+		<script src="./main.js"></script>
+	</body>
+</html>
