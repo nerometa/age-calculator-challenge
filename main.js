@@ -18,31 +18,44 @@ function calculateAge() {
 		validateForm("var(--light-grey)", "var(--smokey-grey)", "", "y");
 
 		let now = new Date();
-		let birthDay = new Date(
-			formData.year,
-			formData.month - 1,
-			formData.day
-		);
-		let difference = Math.floor(now - birthDay);
+		let nowDate = now.getDate();
+		let nowMonth = now.getMonth() + 1;
+		let nowYear = now.getFullYear();
+		let daysInMonth = new Date(formData.year, formData.month, 0).getDate();
 
-		let daysAge = Math.floor(difference / day);
+		let year = nowYear - formData.year;
+		let month = nowMonth - formData.month;
+		let date = nowDate - formData.day;
 
-		let yearsAge = Math.floor(daysAge / 365);
-		let monthsAge = Math.floor((daysAge - yearsAge * 365) / 31);
-		let daysLeft = Math.floor(daysAge - (yearsAge * 365 + monthsAge * 31));
+		if (nowMonth < formData.month) {
+			year--;
+			month += 12;
+		}
+
+		if (nowDate < formData.day) {
+			date = daysInMonth + date;
+			month--;
+		}
+
+		if (nowMonth == formData.month) {
+			if (formData.day > nowDate) {
+				year--;
+				month += 12;
+			}
+		}
 
 		document.getElementById("year-result-number").textContent =
-			yearsAge.toString();
+			year.toString();
 		document.getElementById("year-result-text").textContent =
-			yearsAge > 1 ? "years" : "year";
+			year > 1 ? "years" : "year";
 		document.getElementById("month-result-number").textContent =
-			monthsAge.toString();
+			month.toString();
 		document.getElementById("month-result-text").textContent =
-			monthsAge > 1 ? "months" : "month";
+			month > 1 ? "months" : "month";
 		document.getElementById("day-result-number").textContent =
-			daysLeft.toString();
+			date.toString();
 		document.getElementById("day-result-text").textContent =
-			daysLeft > 1 ? "days" : "day";
+			date > 1 ? "days" : "day";
 	}
 	if (!dayValid) {
 		validateForm("var(--red)", "var(--red)", "Must be a valid day", "d");
@@ -79,7 +92,10 @@ function isValidDate(birthDate, check) {
 			if (!monthValid) {
 				month = 12;
 			}
-			return yearValid;
+
+			if (year > currentYear) {
+				console.error(`${year} exceeded ${currentYear}`);
+			} else return yearValid;
 		default:
 			return yearValid && monthValid && dayValid;
 	}
