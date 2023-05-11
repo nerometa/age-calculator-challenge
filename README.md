@@ -68,3 +68,4 @@ I did have a lot to take in when it comes to JavaScript. So, I looked into [anot
 
 -   [Age calculator app by Cédric G
     ](https://github.com/Syfrost/Age-calculator-app-FM) - This helped me with JavaScript a LOT. Check out his code.
+-   [Age calculator app by PadmeshxK](https://github.com/PadmeshxK/Age-calculator) - This helped me with the calculation logic.
